@@ -1,0 +1,3 @@
+# CPP Optimizations on loops
+
+Modifications from parrellel code, to unrolling loops and modifying accumulators...
