@@ -1,6 +1,8 @@
+#include <cstdint>
 #include <iostream>
 #include <stdexcept>
 #include <vector>
+
 int get_elem(std::vector<int> &v, int index) {
 
   if (index >= v.size()) {
@@ -9,9 +11,9 @@ int get_elem(std::vector<int> &v, int index) {
 
   return v[index];
 }
-int combine1(std::vector<int> &v) {
+uint64_t combine1(std::vector<int> &v) {
 
-  int acc = 1;
+  uint64_t acc = 1;
 
   for (size_t i = 0; i < v.size(); i++) {
     int x = get_elem(v, i);
@@ -22,14 +24,14 @@ int combine1(std::vector<int> &v) {
   return acc;
 }
 
-int main() {
+int main(int argc, char *argv[]) {
   std::vector<int> numVector;
+  int numElems = std::stoi(argv[1]);
+  for (size_t i = 1; i < numElems; i++) {
+    numVector.push_back(i);
+  }
 
-  numVector.push_back(1);
-  numVector.push_back(2);
-  numVector.push_back(3);
-
-  int acc_result = combine1(numVector);
+  uint64_t acc_result = combine1(numVector);
 
   std::cout << "Accumulated value from the vector " << acc_result << std::endl;
   return 0;
